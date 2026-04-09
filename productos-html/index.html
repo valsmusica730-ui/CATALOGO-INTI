@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INTI SOMOS | Catálogo Interactivo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="sidebar">
+      <div class="brand-block">
+        <img src="imagenes/logo.jpg" alt="Logo INTI SOMOS" class="logo" />
+        <h1>INTI SOMOS</h1>
+        <p class="tagline">Alimentando sueños, conectando mundos</p>
+      </div>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Buscar producto..." />
+      </div>
+
+      <div class="menu-section">
+        <h3>Categorías</h3>
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="snack">Snacks</button>
+        <button class="filter-btn" data-filter="proteina">Proteína vegetal</button>
+        <button class="filter-btn" data-filter="desayuno">Desayuno</button>
+        <button class="filter-btn" data-filter="gourmet">Gourmet</button>
+      </div>
+
+      <div class="menu-section">
+        <h3>Valor de marca</h3>
+        <ul class="brand-values">
+          <li>Ingredientes andinos</li>
+          <li>Nutrición funcional</li>
+          <li>Innovación alimentaria</li>
+          <li>Identidad exportable</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="hero">
+        <div class="hero-overlay">
+          <div class="hero-text">
+            <span class="badge">Catálogo 2026</span>
+            <h2>Portafolio interactivo de productos</h2>
+            <p>
+              Alimentos andinos con identidad, nutrición y proyección internacional.
+            </p>
+            <a href="#productos" class="hero-btn">Explorar catálogo</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro-strip">
+        <div class="intro-card">
+          <strong>Natural</strong>
+          <span>Ingredientes con esencia andina</span>
+        </div>
+        <div class="intro-card">
+          <strong>Nutritivo</strong>
+          <span>Alto valor funcional y práctico</span>
+        </div>
+        <div class="intro-card">
+          <strong>Exportable</strong>
+          <span>Imagen lista para mercados globales</span>
+        </div>
+      </section>
+
+      <section class="products-section" id="productos">
+        <div class="section-header">
+          <h2>Nuestros Productos</h2>
+          <p>Selecciona una categoría o usa el buscador para navegar.</p>
+        </div>
+
+        <div class="products" id="productGrid">
+
+          <article class="card" data-category="snack" data-name="frutas liofilizadas fruta snack natural">
+            <img src="imagenes/fruta.jpg" alt="Frutas Liofilizadas">
+            <div class="card-content">
+              <span class="card-label">Snack natural</span>
+              <h3>Frutas Liofilizadas</h3>
+              <p>Snack liviano, colorido y nutritivo con larga vida útil.</p>
+              <a href="productos-html/frutas-liofilizadas.html">Ver producto</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="proteina" data-name="chochos liofilizados lupin proteína vegetal">
+            <img src="imagenes/lupin.jpg" alt="Chochos Liofilizados">
+            <div class="card-content">
+              <span class="card-label">Proteína vegetal</span>
+              <h3>Chochos Liofilizados</h3>
+              <p>Fuente vegetal andina de proteína, práctica y diferenciada.</p>
+              <a href="productos-html/chochos-liofilizados.html">Ver producto</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="snack" data-name="chochos chocolate snack premium cacao">
+            <img src="imagenes/chocolate.jpg" alt="Chochos con Chocolate">
+            <div class="card-content">
+              <span class="card-label">Snack premium</span>
+              <h3>Chochos con Chocolate</h3>
+              <p>Nutrición andina con perfil indulgente y valor agregado.</p>
+              <a href="productos-html/chochos-chocolate.html">Ver producto</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="gourmet" data-name="chochos aji spaicy gourmet conserva">
+            <img src="imagenes/spaicy.jpg" alt="Chochos en Ají">
+            <div class="card-content">
+              <span class="card-label">Gourmet</span>
+              <h3>Chochos en Ají</h3>
+              <p>Producto tradicional reinterpretado para consumo moderno.</p>
+              <a href="productos-html/chochos-aji.html">Ver producto</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="desayuno" data-name="cereal andino desayuno quinua chocolate canela">
+            <img src="imagenes/CEREAL.jpg" alt="Cereal Andino">
+            <div class="card-content">
+              <span class="card-label">Desayuno funcional</span>
+              <h3>Cereal Andino</h3>
+              <p>Quinua, cacao y canela en una propuesta cálida y energética.</p>
+              <a href="productos-html/cereal-andino.html">Ver producto</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="desayuno" data-name="pancake mix pancak desayuno chocolate chips">
+            <img src="imagenes/pancak.jpg" alt="Pancake Mix">
+            <div class="card-content">
+              <span class="card-label">Desayuno práctico</span>
+              <h3>Pancake Mix</h3>
+              <p>Mezcla lista para preparar con perfil familiar y comercial.</p>
+              <a href="productos-html/pancake-mix.html">Ver producto</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
