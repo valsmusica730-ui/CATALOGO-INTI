@@ -1,3 +1,4 @@
+![cereal-andino.](../imagenes/CEREAL.jpg)
 # ANDEAN CEREAL MIX (QUINOA, CHOCOLATE & CINNAMON)
 
 ## 1. Descripción
