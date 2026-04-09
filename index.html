@@ -3,238 +3,190 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INTI SOMOS | Ancestral Wisdom</title>
+  <title>About Us | INTI SOMOS</title>
   <style>
     :root {
       --terracota: #8C4A2F;
       --chocolate: #4E3427;
       --arena: #E8D9C5;
+      --crema: #F7F1E8;
       --blanco: #FFFDF9;
       --texto: #2E221B;
       --gris: #6C5A4E;
-      --sombra: 0 10px 30px rgba(78,52,39,0.12);
+      --sombra: 0 10px 30px rgba(78,52,39,.16);
     }
 
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      color: var(--texto);
-      background-color: #fcf8f2;
-      overflow-x: hidden;
-    }
-
-    /* --- ANIMACIONES --- */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes scaleIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    /* Aplicación de animaciones */
-    .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; }
-    .animate-logo { animation: scaleIn 1s ease-out forwards; }
-    .animate-story { animation: fadeInUp 1s ease-out 0.3s backwards; }
+    * { box-sizing: border-box; }
     
-    /* --- HERO SECTION --- */
-    .hero-brand {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      min-height: 100vh;
-      background: var(--blanco);
+    html, body {
+      margin: 0;
+      padding: 0;
+      /* Eliminamos el overflow-x: hidden que causaba el bloqueo */
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--texto);
+      background-color: var(--crema);
     }
 
-    .brand-sidebar {
+    h1, h2, .magazine-label { font-family: Georgia, serif; margin: 0; }
+
+    /* --- CONTENEDOR PRINCIPAL FLEXIBLE --- */
+    .magazine-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      min-height: 100vh; /* Altura mínima, pero permite crecer */
+      width: 100%;
+      background: var(--blanco);
+      box-shadow: var(--sombra);
+    }
+
+    /* COLUMNA IZQUIERDA */
+    .brand-spread {
       background: linear-gradient(135deg, var(--terracota), var(--chocolate));
       color: white;
+      padding: 60px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 60px 40px;
-      text-align: center;
-      position: relative;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: sticky; /* Se queda fija mientras scrolleas la historia */
+      top: 0;
+      height: 100vh; 
     }
 
-    .logo-container img {
-      width: 190px;
-      height: auto;
-      filter: drop-shadow(0 6px 15px rgba(0,0,0,0.3));
-      margin-bottom: 25px;
-      transition: transform 0.3s ease;
-    }
-
-    /* Efecto hover en el logo */
-    .logo-container img:hover {
-      transform: scale(1.05) rotate(2deg);
-    }
-
-    .brand-sidebar h1 {
-      font-size: 3.2rem;
-      margin: 10px 0;
-      letter-spacing: 3px;
+    .magazine-label {
+      font-size: 0.9rem;
       text-transform: uppercase;
-      font-weight: 800;
+      letter-spacing: 3px;
+      border-bottom: 1px solid var(--arena);
+      padding-bottom: 5px;
+      opacity: 0.8;
     }
 
-    .brand-tagline {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      font-style: italic;
-      max-width: 320px;
-      line-height: 1.4;
+    .logo-spread img {
+      width: 160px;
+      height: auto;
+      margin-top: 40px;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
     }
 
-    /* --- CONTENIDO DE LA HISTORIA --- */
-    .story-content {
-      padding: 80px;
+    .magazine-vertical-title {
+      font-size: 4.5rem;
+      font-weight: 400;
+      line-height: 1;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-top: 20px;
+    }
+
+    .search-spread { width: 100%; margin-top: 40px; }
+    .search-spread input {
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      outline: none;
+    }
+
+    /* COLUMNA DERECHA (La que permite el scroll) */
+    .story-spread {
+      padding: 100px 80px;
+      background-color: var(--blanco);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-color: var(--blanco);
-      position: relative;
     }
 
-    .eyebrow-story {
+    .story-eyebrow {
       color: var(--terracota);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
+      font-size: 0.85rem;
       margin-bottom: 15px;
-      display: block;
-      font-size: 0.9rem;
     }
 
-    .story-content h2 {
-      font-size: 2.5rem;
+    .story-title {
+      font-size: 3rem;
       color: var(--chocolate);
-      margin-top: 0;
-      line-height: 1.2;
+      line-height: 1.1;
+      margin-bottom: 40px;
     }
 
-    .story-text {
-      line-height: 1.9;
+    .story-body {
+      column-count: 2;
+      column-gap: 40px;
+      line-height: 1.8;
       color: var(--gris);
-      font-size: 1.1rem;
-      max-width: 600px;
+      text-align: justify;
     }
 
-    .story-text p { margin-bottom: 22px; }
+    .story-body p { margin-bottom: 20px; }
+    .highlight { color: var(--terracota); font-weight: 700; }
 
-    .highlight {
-      color: var(--terracota);
-      font-weight: 600;
-      border-bottom: 1px dashed var(--arena);
-    }
-
-    /* Buscador */
-    .search-box {
+    .magazine-cta {
       margin-top: 40px;
-      width: 100%;
-      max-width: 350px;
+      display: inline-block;
+      color: var(--terracota);
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--terracota);
+      padding-bottom: 5px;
     }
 
-    .search-box input {
-      width: 100%;
-      padding: 16px 28px;
-      border-radius: 50px;
-      border: none;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(5px);
-      color: white;
-      font-size: 1rem;
-      border: 1px solid rgba(255,255,255,0.3);
-      outline: none;
-      transition: all 0.3s ease;
-    }
-
-    .search-box input::placeholder { color: rgba(255,255,255,0.7); }
-
-    .search-box input:focus {
-      background: white;
-      color: var(--chocolate);
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .hero-brand { grid-template-columns: 1fr; }
-      .brand-sidebar { min-height: 50vh; padding: 50px 20px; }
-      .story-content { padding: 60px 30px; }
-      .brand-sidebar h1 { font-size: 2.5rem; }
+    /* RESPONSIVE: IMPORTANTE PARA EL SCROLL EN MÓVIL */
+    @media (max-width: 1100px) {
+      .magazine-layout { grid-template-columns: 1fr; }
+      .brand-spread { 
+        position: relative; /* Ya no es fija en móvil */
+        height: auto; 
+        min-height: 500px;
+        padding: 40px; 
+      }
+      .magazine-vertical-title { 
+        writing-mode: horizontal-tb; 
+        transform: rotate(0); 
+        font-size: 3rem; 
+      }
+      .story-spread { padding: 60px 30px; }
+      .story-body { column-count: 1; }
     }
   </style>
 </head>
 <body>
 
-  <section class="hero-brand">
-    <div class="brand-sidebar">
-      <div class="logo-container animate-logo">
-        <img src="../imagenes/logo_inti.png" alt="INTI SOMOS Logo">
+  <section class="magazine-layout">
+    <div class="brand-spread">
+      <div class="top-meta">
+        <span class="magazine-label">INTI SOMOS • EST. 2024</span>
+        <div class="logo-spread">
+          <img src="../imagenes/logo_inti.png" alt="Logo INTI SOMOS">
+        </div>
       </div>
-      <h1 class="animate-fade-up">INTI SOMOS</h1>
-      <p class="brand-tagline animate-fade-up" style="animation-delay: 0.2s;">
-        Nourishing dreams, connecting worlds
-      </p>
-      
-      <div class="search-box animate-fade-up" style="animation-delay: 0.4s;">
-        <input type="text" placeholder="Search product...">
+      <h1 class="magazine-vertical-title">About us</h1>
+      <div class="bottom-meta">
+        <p style="font-style: italic; opacity: 0.9;">Nourishing dreams,<br>connecting worlds.</p>
+        <div class="search-spread">
+          <input type="text" placeholder="Search product...">
+        </div>
       </div>
     </div>
 
-    <div class="story-content animate-story">
-      <span class="eyebrow-story">Our Story</span>
-      <h2>A bridge between <br>two worlds</h2>
+    <div class="story-spread">
+      <span class="story-eyebrow">The Heart of our Brand</span>
+      <h2 class="story-title">A bridge between<br>two worlds</h2>
       
-      <div class="story-text">
-        <p>
-          Founded by <strong>Fernanda</strong>, an American mother with Ecuadorian roots, 
-          INTI SOMOS emerged from a powerful pursuit: finding truly nourishing food 
-          for her family—without compromising taste or quality.
-        </p>
-        <p>
-          In Ecuador, she rediscovered <span class="highlight">ancestral ingredients like chocho</span>, 
-          a nutrient-dense Andean superfood. What she found was more than nutrition; 
-          it was a living heritage of wellness.
-        </p>
-        <p>
-          <strong>INTI SOMOS</strong>—“Sun” and “We Are”—represents life and connection. 
-          It is a celebration of who we are when we nourish ourselves with intention.
-        </p>
+      <div class="story-body">
+        <p>Founded by <strong>Fernanda</strong>, an American mother with Ecuadorian roots, the brand emerged from a simple yet powerful pursuit: finding truly nourishing food for her family—without compromising taste, quality, or purpose.</p>
+        <p>In Ecuador, she rediscovered <span class="highlight">ancestral ingredients like chocho</span>—a nutrient-dense Andean superfood rich in protein and fiber—alongside vibrant fruits and natural foods cultivated with deep respect for the land.</p>
+        <p>Back in the United States, that discovery became a vision: to share the strength, purity, and vitality of <span class="highlight">Andean nutrition</span> with families around the world.</p>
+        <p><strong>INTI SOMOS</strong>—“Sun” and “We Are”—represents life, energy, and connection. It is a celebration of who we are when we nourish ourselves with intention.</p>
+        <p>More than food, INTI SOMOS is a bridge between ancestral wisdom and modern living—bringing conscious nutrition to a global community.</p>
       </div>
 
-      <div class="animate-fade-up" style="animation-delay: 0.8s; margin-top: 20px;">
-        <a href="#productos" style="color: var(--terracota); font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 10px;">
-          <span>Scroll to explore</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
-        </a>
-      </div>
+      <a href="#productos" class="magazine-cta">Explore our catalog ↓</a>
     </div>
   </section>
 
