@@ -1,19 +1,22 @@
 const searchInput = document.getElementById("searchInput");
-const cards = document.querySelectorAll(".card");
+const productCards = document.querySelectorAll(".card");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const scrollTopBtn = document.getElementById("scrollTopBtn");
 
 let currentFilter = "all";
 
+/**
+ * Updates the product grid based on search input and active category filter.
+ */
 function updateCatalog() {
-  const searchValue = searchInput.value.toLowerCase().trim();
+  const searchTerm = searchInput.value.toLowerCase().trim();
 
-  cards.forEach((card) => {
-    const name = card.dataset.name.toLowerCase();
-    const category = card.dataset.category.toLowerCase();
+  productCards.forEach((card) => {
+    const productName = card.dataset.name.toLowerCase();
+    const productCategory = card.dataset.category.toLowerCase();
 
-    const matchesSearch = name.includes(searchValue);
-    const matchesFilter = currentFilter === "all" || category === currentFilter;
+    const matchesSearch = productName.includes(searchTerm);
+    const matchesFilter = currentFilter === "all" || productCategory === currentFilter;
 
     if (matchesSearch && matchesFilter) {
       card.classList.remove("hidden");
@@ -23,17 +26,23 @@ function updateCatalog() {
   });
 }
 
+// Event listener for real-time search
 searchInput.addEventListener("input", updateCatalog);
 
+// Event listeners for category filtering
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
+    // UI: Update active button state
     filterButtons.forEach((btn) => btn.classList.remove("active"));
     button.classList.add("active");
+
+    // Logic: Update filter and refresh view
     currentFilter = button.dataset.filter;
     updateCatalog();
   });
 });
 
+// Show/Hide "Scroll to Top" button based on scroll position
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300) {
     scrollTopBtn.classList.add("show");
@@ -42,6 +51,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
+// Smooth scroll to top functionality
 scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
