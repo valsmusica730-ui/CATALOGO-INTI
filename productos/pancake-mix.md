@@ -1,3 +1,4 @@
+![pancake-mix](../imagenes/pancak.jpg)
 # PANCAKE MIX WITH CHOCOLATE CHIPS
 
 ## 1. Descripción
