@@ -1,3 +1,4 @@
+![chochos-chocolate](../imagenes/chocolate.jpg)
 # CHOCOLATE-COVERED LUPIN BEANS / CHOCHOS CON CHOCOLATE
 
 ## 1. Descripción del producto
