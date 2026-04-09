@@ -1,18 +1,21 @@
 :root {
-  --terracota: #8C4A2F;
-  --terracota-dark: #6E3722;
+  /* Color Palette */
+  --terracotta: #8C4A2F;
+  --terracotta-dark: #6E3722;
   --chocolate: #4E3427;
-  --cacao: #6B4F3A;
-  --arena: #E8D9C5;
-  --crema: #F7F1E8;
-  --oliva: #7A8450;
-  --mostaza: #C48A3A;
-  --arcilla: #A63D2F;
-  --blanco: #FFFDF9;
-  --texto: #2E221B;
-  --gris: #6C5A4E;
-  --sombra: 0 10px 30px rgba(78, 52, 39, 0.16);
-  --radio: 18px;
+  --cocoa: #6B4F3A;
+  --sand: #E8D9C5;
+  --cream: #F7F1E8;
+  --olive: #7A8450;
+  --mustard: #C48A3A;
+  --clay: #A63D2F;
+  --white: #FFFDF9;
+  --text: #2E221B;
+  --gray: #6C5A4E;
+  
+  /* Effects */
+  --shadow: 0 10px 30px rgba(78, 52, 39, 0.16);
+  --radius: 18px;
 }
 
 * {
@@ -27,8 +30,10 @@ body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
   background: linear-gradient(180deg, #f8f2e8 0%, #f3e9da 100%);
-  color: var(--texto);
+  color: var(--text);
 }
+
+/* --- Layout Structure --- */
 
 .layout {
   display: grid;
@@ -36,8 +41,10 @@ body {
   min-height: 100vh;
 }
 
+/* --- Sidebar --- */
+
 .sidebar {
-  background: linear-gradient(180deg, var(--terracota) 0%, var(--chocolate) 100%);
+  background: linear-gradient(180deg, var(--terracotta) 0%, var(--chocolate) 100%);
   color: white;
   padding: 28px 22px;
   position: sticky;
@@ -103,7 +110,7 @@ body {
   font-size: 1rem;
   outline: none;
   background: #fff9f2;
-  color: var(--texto);
+  color: var(--text);
 }
 
 .menu-section {
@@ -134,9 +141,9 @@ body {
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: var(--mostaza);
+  background: var(--mustard);
   color: var(--chocolate);
-  border-color: var(--mostaza);
+  border-color: var(--mustard);
   font-weight: 700;
 }
 
@@ -159,6 +166,8 @@ body {
   color: #f3e7da;
 }
 
+/* --- Main Content --- */
+
 .main-content {
   padding: 28px;
 }
@@ -171,7 +180,7 @@ body {
   background:
     linear-gradient(90deg, rgba(46, 34, 27, 0.82) 0%, rgba(46, 34, 27, 0.32) 60%),
     url("imagenes/fruta.jpg") center/cover no-repeat;
-  box-shadow: var(--sombra);
+  box-shadow: var(--shadow);
 }
 
 .hero-overlay {
@@ -189,7 +198,7 @@ body {
 .badge,
 .mini-badge {
   display: inline-block;
-  background: var(--mostaza);
+  background: var(--mustard);
   color: var(--chocolate);
   padding: 8px 14px;
   border-radius: 999px;
@@ -220,7 +229,7 @@ body {
 
 .hero-btn {
   display: inline-block;
-  background: var(--arcilla);
+  background: var(--clay);
   color: white;
   text-decoration: none;
   padding: 14px 24px;
@@ -233,6 +242,8 @@ body {
   border: 1px solid rgba(255,255,255,0.18);
 }
 
+/* --- Info Cards --- */
+
 .intro-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -242,7 +253,7 @@ body {
 
 .intro-card {
   background: linear-gradient(135deg, #fffaf3, #f0e1cb);
-  border-left: 6px solid var(--terracota);
+  border-left: 6px solid var(--terracotta);
   border-radius: 18px;
   padding: 20px;
   box-shadow: 0 6px 20px rgba(78, 52, 39, 0.08);
@@ -268,7 +279,7 @@ body {
 .story-text p,
 .export-card p,
 .contact-card p {
-  color: var(--gris);
+  color: var(--gray);
   line-height: 1.8;
 }
 
@@ -278,14 +289,11 @@ body {
   background: linear-gradient(135deg, #fffaf4, #efe2cf);
   border-radius: 24px;
   padding: 28px;
-  box-shadow: var(--sombra);
+  box-shadow: var(--shadow);
   border: 1px solid rgba(140, 74, 47, 0.08);
 }
 
-.story-text {
-  display: grid;
-  gap: 14px;
-}
+/* --- Product Grid --- */
 
 .products {
   display: grid;
@@ -294,10 +302,10 @@ body {
 }
 
 .card {
-  background: var(--blanco);
+  background: var(--white);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: var(--sombra);
+  box-shadow: var(--shadow);
   border: 1px solid rgba(140, 74, 47, 0.08);
 }
 
@@ -314,8 +322,8 @@ body {
 
 .card-label {
   display: inline-block;
-  background: var(--arena);
-  color: var(--terracota-dark);
+  background: var(--sand);
+  color: var(--terracotta-dark);
   font-size: 0.8rem;
   font-weight: 700;
   padding: 7px 12px;
@@ -331,19 +339,21 @@ body {
 
 .card p {
   margin: 0 0 18px;
-  color: var(--gris);
+  color: var(--gray);
   line-height: 1.6;
 }
 
 .card a {
   display: inline-block;
   text-decoration: none;
-  background: linear-gradient(135deg, var(--terracota), var(--cacao));
+  background: linear-gradient(135deg, var(--terracotta), var(--cocoa));
   color: white;
   padding: 11px 18px;
   border-radius: 12px;
   font-weight: 700;
 }
+
+/* --- Export & Contact --- */
 
 .export-grid {
   display: grid;
@@ -370,6 +380,8 @@ body {
   gap: 16px;
 }
 
+/* --- Utility --- */
+
 .hidden {
   display: none !important;
 }
@@ -382,11 +394,11 @@ body {
   height: 52px;
   border: none;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--terracota), var(--chocolate));
+  background: linear-gradient(135deg, var(--terracotta), var(--chocolate));
   color: white;
   font-size: 1.2rem;
   cursor: pointer;
-  box-shadow: var(--sombra);
+  box-shadow: var(--shadow);
   display: none;
   z-index: 999;
 }
@@ -394,6 +406,8 @@ body {
 .scroll-top-btn.show {
   display: block;
 }
+
+/* --- Responsive --- */
 
 @media (max-width: 980px) {
   .layout {
