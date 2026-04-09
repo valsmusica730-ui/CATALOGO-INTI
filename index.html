@@ -3,192 +3,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | INTI SOMOS</title>
-  <style>
-    :root {
-      --terracota: #8C4A2F;
-      --chocolate: #4E3427;
-      --arena: #E8D9C5;
-      --crema: #F7F1E8;
-      --blanco: #FFFDF9;
-      --texto: #2E221B;
-      --gris: #6C5A4E;
-      --sombra: 0 10px 30px rgba(78,52,39,.16);
-    }
-
-    * { box-sizing: border-box; }
-    
-    html, body {
-      margin: 0;
-      padding: 0;
-      /* Eliminamos el overflow-x: hidden que causaba el bloqueo */
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: var(--texto);
-      background-color: var(--crema);
-    }
-
-    h1, h2, .magazine-label { font-family: Georgia, serif; margin: 0; }
-
-    /* --- CONTENEDOR PRINCIPAL FLEXIBLE --- */
-    .magazine-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      min-height: 100vh; /* Altura mínima, pero permite crecer */
-      width: 100%;
-      background: var(--blanco);
-      box-shadow: var(--sombra);
-    }
-
-    /* COLUMNA IZQUIERDA */
-    .brand-spread {
-      background: linear-gradient(135deg, var(--terracota), var(--chocolate));
-      color: white;
-      padding: 60px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-      position: sticky; /* Se queda fija mientras scrolleas la historia */
-      top: 0;
-      height: 100vh; 
-    }
-
-    .magazine-label {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      border-bottom: 1px solid var(--arena);
-      padding-bottom: 5px;
-      opacity: 0.8;
-    }
-
-    .logo-spread img {
-      width: 160px;
-      height: auto;
-      margin-top: 40px;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
-    }
-
-    .magazine-vertical-title {
-      font-size: 4.5rem;
-      font-weight: 400;
-      line-height: 1;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      margin-top: 20px;
-    }
-
-    .search-spread { width: 100%; margin-top: 40px; }
-    .search-spread input {
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.3);
-      background: rgba(255,255,255,0.1);
-      color: white;
-      outline: none;
-    }
-
-    /* COLUMNA DERECHA (La que permite el scroll) */
-    .story-spread {
-      padding: 100px 80px;
-      background-color: var(--blanco);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .story-eyebrow {
-      color: var(--terracota);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.85rem;
-      margin-bottom: 15px;
-    }
-
-    .story-title {
-      font-size: 3rem;
-      color: var(--chocolate);
-      line-height: 1.1;
-      margin-bottom: 40px;
-    }
-
-    .story-body {
-      column-count: 2;
-      column-gap: 40px;
-      line-height: 1.8;
-      color: var(--gris);
-      text-align: justify;
-    }
-
-    .story-body p { margin-bottom: 20px; }
-    .highlight { color: var(--terracota); font-weight: 700; }
-
-    .magazine-cta {
-      margin-top: 40px;
-      display: inline-block;
-      color: var(--terracota);
-      text-decoration: none;
-      font-weight: 700;
-      text-transform: uppercase;
-      border-bottom: 2px solid var(--terracota);
-      padding-bottom: 5px;
-    }
-
-    /* RESPONSIVE: IMPORTANTE PARA EL SCROLL EN MÓVIL */
-    @media (max-width: 1100px) {
-      .magazine-layout { grid-template-columns: 1fr; }
-      .brand-spread { 
-        position: relative; /* Ya no es fija en móvil */
-        height: auto; 
-        min-height: 500px;
-        padding: 40px; 
-      }
-      .magazine-vertical-title { 
-        writing-mode: horizontal-tb; 
-        transform: rotate(0); 
-        font-size: 3rem; 
-      }
-      .story-spread { padding: 60px 30px; }
-      .story-body { column-count: 1; }
-    }
-  </style>
+  <title>INTI SOMOS | Interactive Catalog</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="layout">
 
-  <section class="magazine-layout">
-    <div class="brand-spread">
-      <div class="top-meta">
-        <span class="magazine-label">INTI SOMOS • EST. 2024</span>
-        <div class="logo-spread">
-          <img src="../imagenes/logo_inti.png" alt="Logo INTI SOMOS">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <img src="imagenes/logo.jpg" alt="INTI SOMOS Logo" class="logo" />
+        <h1>INTI SOMOS</h1>
+        <p class="tagline">Nourishing dreams, connecting worlds</p>
+      </div>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search product..." />
+      </div>
+
+      <div class="menu-section">
+        <h3>Categories</h3>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="snack">Snacks</button>
+        <button class="filter-btn" data-filter="proteina">Plant-based Protein</button>
+        <button class="filter-btn" data-filter="desayuno">Breakfast</button>
+        <button class="filter-btn" data-filter="gourmet">Gourmet</button>
+      </div>
+
+      <div class="menu-section">
+        <h3>Brand Values</h3>
+        <ul class="brand-values">
+          <li>Andean ingredients</li>
+          <li>Functional nutrition</li>
+          <li>Food innovation</li>
+          <li>Export identity</li>
+        </ul>
+      </div>
+
+      <div class="menu-section sidebar-highlight">
+        <h3>Target Markets</h3>
+        <p>Retail, export, food service, gifting, and private labels.</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="hero">
+        <div class="hero-overlay">
+          <div class="hero-text">
+            <span class="badge">2026 Catalog</span>
+            <h2>Interactive Portfolio of Andean Products</h2>
+            <p>
+              Food solutions with identity, nutrition, and international projection.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#productos" class="hero-btn">Explore Catalog</a>
+              <a href="#contacto" class="hero-btn secondary">Business Contact</a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat-box">
+                <strong>6</strong>
+                <span>products</span>
+              </div>
+              <div class="stat-box">
+                <strong>100%</strong>
+                <span>Andean identity</span>
+              </div>
+              <div class="stat-box">
+                <strong>B2B</strong>
+                <span>export oriented</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <h1 class="magazine-vertical-title">About us</h1>
-      <div class="bottom-meta">
-        <p style="font-style: italic; opacity: 0.9;">Nourishing dreams,<br>connecting worlds.</p>
-        <div class="search-spread">
-          <input type="text" placeholder="Search product...">
+      </section>
+
+      <section class="intro-strip">
+        <div class="intro-card">
+          <strong>Natural</strong>
+          <span>Ingredients with Andean essence</span>
         </div>
-      </div>
-    </div>
+        <div class="intro-card">
+          <strong>Nutritious</strong>
+          <span>High functional and practical value</span>
+        </div>
+        <div class="intro-card">
+          <strong>Exportable</strong>
+          <span>Ready for global markets</span>
+        </div>
+      </section>
 
-    <div class="story-spread">
-      <span class="story-eyebrow">The Heart of our Brand</span>
-      <h2 class="story-title">A bridge between<br>two worlds</h2>
-      
-      <div class="story-body">
-        <p>Founded by <strong>Fernanda</strong>, an American mother with Ecuadorian roots, the brand emerged from a simple yet powerful pursuit: finding truly nourishing food for her family—without compromising taste, quality, or purpose.</p>
-        <p>In Ecuador, she rediscovered <span class="highlight">ancestral ingredients like chocho</span>—a nutrient-dense Andean superfood rich in protein and fiber—alongside vibrant fruits and natural foods cultivated with deep respect for the land.</p>
-        <p>Back in the United States, that discovery became a vision: to share the strength, purity, and vitality of <span class="highlight">Andean nutrition</span> with families around the world.</p>
-        <p><strong>INTI SOMOS</strong>—“Sun” and “We Are”—represents life, energy, and connection. It is a celebration of who we are when we nourish ourselves with intention.</p>
-        <p>More than food, INTI SOMOS is a bridge between ancestral wisdom and modern living—bringing conscious nutrition to a global community.</p>
-      </div>
+      <section class="products-section" id="productos">
+        <div class="section-header">
+          <h2>Our Products</h2>
+          <p>Select a category or use the search bar to browse.</p>
+        </div>
 
-      <a href="#productos" class="magazine-cta">Explore our catalog ↓</a>
-    </div>
-  </section>
+        <div class="products" id="productGrid">
 
+          <article class="card" data-category="snack" data-name="freeze dried fruit snack natural liofilizada">
+            <img src="imagenes/fruta.jpg" alt="Freeze-Dried Fruits">
+            <div class="card-content">
+              <span class="card-label">Natural Snack</span>
+              <h3>Freeze-Dried Fruits</h3>
+              <p>Light, colorful, and nutritious snack with a long shelf life.</p>
+              <a href="productos-html/frutas-liofilizadas.html">View product</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="proteina" data-name="freeze dried lupin beans protein vegetal chochos">
+            <img src="imagenes/lupin.jpg" alt="Freeze-Dried Lupin">
+            <div class="card-content">
+              <span class="card-label">Plant-based Protein</span>
+              <h3>Freeze-Dried Lupin Beans</h3>
+              <p>Andean plant-based protein source, practical and unique.</p>
+              <a href="productos-html/chochos-liofilizados.html">View product</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="snack" data-name="chocolate lupin snack premium cacao chochos">
+            <img src="imagenes/chocolate.jpg" alt="Chocolate Covered Lupin">
+            <div class="card-content">
+              <span class="card-label">Premium Snack</span>
+              <h3>Chocolate Covered Lupin</h3>
+              <p>Andean nutrition with an indulgent profile and added value.</p>
+              <a href="productos-html/chochos-chocolate.html">View product</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="gourmet" data-name="lupin chili spicy gourmet preserve chochos">
+            <img src="imagenes/spaicy.jpg" alt="Lupin in Chili Sauce">
+            <div class="card-content">
+              <span class="card-label">Gourmet</span>
+              <h3>Lupin in Chili Sauce</h3>
+              <p>Traditional product reinterpreted for modern consumption.</p>
+              <a href="productos-html/chochos-aji.html">View product</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="desayuno" data-name="andean cereal breakfast quinoa chocolate cinnamon">
+            <img src="imagenes/CEREAL.jpg" alt="Andean Cereal">
+            <div class="card-content">
+              <span class="card-label">Functional Breakfast</span>
+              <h3>Andean Cereal</h3>
+              <p>Quinoa, cocoa, and cinnamon in a warm, energetic proposal.</p>
+              <a href="productos-html/cereal-andino.html">View product</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="desayuno" data-name="pancake mix breakfast chocolate chips">
+            <img src="imagenes/pancak.jpg" alt="Pancake Mix">
+            <div class="card-content">
+              <span class="card-label">Practical Breakfast</span>
+              <h3>Pancake Mix</h3>
+              <p>Ready-to-prepare mix with a family and commercial profile.</p>
+              <a href="productos-html/pancake-mix.html">View product</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="export-section">
+        <div class="export-card">
+          <span class="mini-badge">INTI SOMOS</span>
+          <h2>Ready for International Markets</h2>
+          <p>
+            Our portfolio combines Andean ingredients, logistical practicality,
+            and a warm, authentic, and differentiated brand identity.
+          </p>
+
+          <div class="export-grid">
+            <div class="export-item">
+              <strong>Long Shelf Life</strong>
+              <span>Functional and stable formats</span>
+            </div>
+            <div class="export-item">
+              <strong>Added Value</strong>
+              <span>Innovation with a narrative of origin</span>
+            </div>
+            <div class="export-item">
+              <strong>Export Brand</strong>
+              <span>Image ready for B2B buyers</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contacto">
+        <div class="contact-card">
+          <div>
+            <span class="mini-badge">Business Contact</span>
+            <h2>Let’s Connect with New Markets</h2>
+            <p>
+              If you wish to present INTI SOMOS to distributors, buyers, or partners,
+              this catalog is ready to serve as your digital commercial showroom.
+            </p>
+          </div>
+
+          <div class="contact-info">
+            <div class="contact-item">
+              <strong>Brand</strong>
+              <span>INTI SOMOS</span>
+            </div>
+            <div class="contact-item">
+              <strong>Email</strong>
+              <span>youremail@company.com</span>
+            </div>
+            <div class="contact-item">
+              <strong>Country</strong>
+              <span>Ecuador</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
