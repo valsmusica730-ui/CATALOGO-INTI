@@ -1,6 +1,7 @@
 const searchInput = document.getElementById("searchInput");
 const cards = document.querySelectorAll(".card");
 const filterButtons = document.querySelectorAll(".filter-btn");
+const scrollTopBtn = document.getElementById("scrollTopBtn");
 
 let currentFilter = "all";
 
@@ -30,5 +31,20 @@ filterButtons.forEach((button) => {
     button.classList.add("active");
     currentFilter = button.dataset.filter;
     updateCatalog();
+  });
+});
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollTopBtn.classList.add("show");
+  } else {
+    scrollTopBtn.classList.remove("show");
+  }
+});
+
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
   });
 });
