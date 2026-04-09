@@ -1,45 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Freeze-Dried Fruits | INTI SOMOS</title>
-<link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frutas Liofilizadas | INTI SOMOS</title>
+  <style>
+    :root{
+      --terracota:#8C4A2F;
+      --terracota-dark:#6E3722;
+      --chocolate:#4E3427;
+      --cacao:#6B4F3A;
+      --arena:#E8D9C5;
+      --crema:#F7F1E8;
+      --oliva:#7A8450;
+      --mostaza:#C48A3A;
+      --arcilla:#A63D2F;
+      --blanco:#FFFDF9;
+      --texto:#2E221B;
+      --gris:#6C5A4E;
+      --sombra:0 10px 30px rgba(78,52,39,.16);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI",Arial,sans-serif;
+      color:var(--texto);
+      background:linear-gradient(180deg,#f8f2e8 0%,#f3e9da 100%);
+    }
+    .topbar{
+      background:linear-gradient(90deg,var(--terracota),var(--chocolate));
+      padding:16px 24px;
+    }
+    .topbar a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
+    }
+    .container{
+      max-width:1200px;
+      margin:32px auto;
+      padding:0 20px 40px;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:center;
+      background:var(--blanco);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--sombra);
+    }
+    .hero img{
+      width:100%;
+      height:100%;
+      min-height:420px;
+      object-fit:cover;
+      display:block;
+    }
+    .hero-content{
+      padding:34px;
+    }
+    .eyebrow{
+      display:inline-block;
+      background:var(--arena);
+      color:var(--terracota-dark);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:.85rem;
+      font-weight:700;
+      margin-bottom:14px;
+    }
+    h1{
+      margin:0 0 12px;
+      color:var(--chocolate);
+      font-size:2.5rem;
+    }
+    .subtitle{
+      color:var(--gris);
+      font-size:1.06rem;
+      line-height:1.7;
+      margin-bottom:20px;
+    }
+    .cta{
+      display:inline-block;
+      background:linear-gradient(135deg,var(--terracota),var(--cacao));
+      color:#fff;
+      text-decoration:none;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:24px;
+      margin-top:28px;
+    }
+    .card{
+      background:var(--blanco);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:var(--sombra);
+    }
+    .card h2{
+      margin:0 0 16px;
+      color:var(--chocolate);
+      font-size:1.3rem;
+    }
+    .spec-list, .benefit-list{
+      margin:0;
+      padding-left:18px;
+      line-height:1.9;
+      color:var(--gris);
+    }
+    .spec-table{
+      width:100%;
+      border-collapse:collapse;
+    }
+    .spec-table td{
+      padding:12px 10px;
+      border-bottom:1px solid #eadbc7;
+      vertical-align:top;
+    }
+    .spec-table td:first-child{
+      font-weight:700;
+      color:var(--chocolate);
+      width:42%;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .hero img{min-height:280px}
+      h1{font-size:2rem}
+    }
+  </style>
 </head>
 <body>
+  <div class="topbar">
+    <a href="../index.html">← Volver al catálogo</a>
+  </div>
 
-<div class="product-page">
-  <a href="../index.html">← Back to catalog</a>
+  <div class="container">
+    <section class="hero">
+      <img src="../imagenes/fruta.jpg" alt="Frutas Liofilizadas">
+      <div class="hero-content">
+        <span class="eyebrow">Snack natural</span>
+        <h1>Frutas Liofilizadas</h1>
+        <p class="subtitle">
+          Frutas seleccionadas sometidas a liofilización para conservar sabor, color,
+          textura y valor nutricional. Una propuesta práctica, liviana y lista para
+          mercados modernos.
+        </p>
+        <a class="cta" href="../index.html#productos">Explorar más productos</a>
+      </div>
+    </section>
 
-  <h1>Freeze-Dried Fruits</h1>
+    <section class="grid">
+      <article class="card">
+        <h2>Ficha técnica</h2>
+        <table class="spec-table">
+          <tr><td>Tipo de alimento</td><td>Snack saludable / fruta procesada</td></tr>
+          <tr><td>Ingredientes</td><td>100% fruta natural</td></tr>
+          <tr><td>Presentación</td><td>20g–50g / 1kg–5kg</td></tr>
+          <tr><td>Vida útil</td><td>12–24 meses</td></tr>
+          <tr><td>Almacenamiento</td><td>Lugar fresco, seco y protegido de humedad</td></tr>
+          <tr><td>Origen</td><td>Ecuador</td></tr>
+          <tr><td>Marca</td><td>INTI SOMOS</td></tr>
+        </table>
+      </article>
 
-  <img src="../imagenes/fruta.jpg" alt="Freeze-Dried Fruits">
+      <article class="card">
+        <h2>Beneficios clave</h2>
+        <ul class="benefit-list">
+          <li>Snack natural con alta concentración nutricional</li>
+          <li>Larga vida útil sin requerimientos complejos</li>
+          <li>Fácil transporte y almacenamiento</li>
+          <li>Ideal para retail, exportación y food service</li>
+        </ul>
+      </article>
 
-  <h2>Description</h2>
-  <p>
-    Natural fruit snacks with high nutritional concentration, vibrant color,
-    and extended shelf life through freeze-drying technology.
-  </p>
+      <article class="card">
+        <h2>Información nutricional referencial</h2>
+        <table class="spec-table">
+          <tr><td>Energía</td><td>350 kcal</td></tr>
+          <tr><td>Carbohidratos</td><td>85g</td></tr>
+          <tr><td>Proteína</td><td>3g</td></tr>
+          <tr><td>Grasas</td><td>1g</td></tr>
+        </table>
+      </article>
 
-  <h2>Food Type</h2>
-  <p>Fruit-based snack</p>
-
-  <h2>Presentation</h2>
-  <p>Bulk and individual packaging</p>
-
-  <h2>Shelf Life</h2>
-  <p>12–24 months</p>
-
-  <h2>Storage Conditions</h2>
-  <p>Store in a cool, dry place</p>
-
-  <h2>Key Benefits</h2>
-  <ul>
-    <li>High nutritional value</li>
-    <li>Lightweight and easy to transport</li>
-    <li>Long shelf life</li>
-    <li>No refrigeration required</li>
-  </ul>
-
-</div>
+      <article class="card">
+        <h2>Aplicaciones comerciales</h2>
+        <ul class="spec-list">
+          <li>Snacks premium</li>
+          <li>Mixes saludables</li>
+          <li>Cereales y yogures</li>
+          <li>Repostería y toppings</li>
+        </ul>
+      </article>
+    </section>
+  </div>
 </body>
 </html>
