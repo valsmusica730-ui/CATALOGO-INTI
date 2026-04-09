@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INTI SOMOS | Ancestral Wisdom & Modern Living</title>
+  <title>INTI SOMOS | Ancestral Wisdom</title>
   <style>
     :root {
       --terracota: #8C4A2F;
@@ -20,17 +20,56 @@
       font-family: "Segoe UI", Roboto, Arial, sans-serif;
       color: var(--texto);
       background-color: #fcf8f2;
+      overflow-x: hidden;
     }
 
+    /* --- ANIMACIONES --- */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Aplicación de animaciones */
+    .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; }
+    .animate-logo { animation: scaleIn 1s ease-out forwards; }
+    .animate-story { animation: fadeInUp 1s ease-out 0.3s backwards; }
+    
     /* --- HERO SECTION --- */
     .hero-brand {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
-      min-height: 90vh;
+      min-height: 100vh;
       background: var(--blanco);
     }
 
-    /* Lateral Izquierdo: Identidad */
     .brand-sidebar {
       background: linear-gradient(135deg, var(--terracota), var(--chocolate));
       color: white;
@@ -40,91 +79,115 @@
       align-items: center;
       padding: 60px 40px;
       text-align: center;
+      position: relative;
     }
 
     .logo-container img {
-      width: 180px; /* Tamaño optimizado */
+      width: 190px;
       height: auto;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
-      margin-bottom: 20px;
+      filter: drop-shadow(0 6px 15px rgba(0,0,0,0.3));
+      margin-bottom: 25px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Efecto hover en el logo */
+    .logo-container img:hover {
+      transform: scale(1.05) rotate(2deg);
     }
 
     .brand-sidebar h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       margin: 10px 0;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       text-transform: uppercase;
+      font-weight: 800;
     }
 
     .brand-tagline {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       opacity: 0.9;
       font-style: italic;
-      max-width: 300px;
+      max-width: 320px;
+      line-height: 1.4;
     }
 
-    /* Lateral Derecho: Historia */
+    /* --- CONTENIDO DE LA HISTORIA --- */
     .story-content {
       padding: 80px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text y="1em" font-size="80" opacity="0.03">☼</text></svg>');
+      background-color: var(--blanco);
+      position: relative;
     }
 
     .eyebrow-story {
       color: var(--terracota);
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
       display: block;
+      font-size: 0.9rem;
     }
 
     .story-content h2 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       color: var(--chocolate);
       margin-top: 0;
+      line-height: 1.2;
     }
 
     .story-text {
-      line-height: 1.8;
+      line-height: 1.9;
       color: var(--gris);
       font-size: 1.1rem;
+      max-width: 600px;
     }
 
-    .story-text p {
-      margin-bottom: 20px;
-    }
+    .story-text p { margin-bottom: 22px; }
 
     .highlight {
       color: var(--terracota);
       font-weight: 600;
+      border-bottom: 1px dashed var(--arena);
     }
 
-    /* Buscador Integrado */
+    /* Buscador */
     .search-box {
-      margin-top: 30px;
-      position: relative;
-      max-width: 400px;
+      margin-top: 40px;
+      width: 100%;
+      max-width: 350px;
     }
 
     .search-box input {
       width: 100%;
-      padding: 15px 25px;
+      padding: 16px 28px;
       border-radius: 50px;
-      border: 1px solid var(--arena);
-      background: var(--blanco);
+      border: none;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+      color: white;
       font-size: 1rem;
-      box-shadow: var(--sombra);
+      border: 1px solid rgba(255,255,255,0.3);
       outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .search-box input::placeholder { color: rgba(255,255,255,0.7); }
+
+    .search-box input:focus {
+      background: white;
+      color: var(--chocolate);
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
 
     /* Responsive */
     @media (max-width: 1024px) {
       .hero-brand { grid-template-columns: 1fr; }
-      .brand-sidebar { min-height: 40vh; padding: 40px; }
-      .story-content { padding: 40px 20px; }
+      .brand-sidebar { min-height: 50vh; padding: 50px 20px; }
+      .story-content { padding: 60px 30px; }
+      .brand-sidebar h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
@@ -132,43 +195,44 @@
 
   <section class="hero-brand">
     <div class="brand-sidebar">
-      <div class="logo-container">
+      <div class="logo-container animate-logo">
         <img src="../imagenes/logo_inti.png" alt="INTI SOMOS Logo">
       </div>
-      <h1>INTI SOMOS</h1>
-      <p class="brand-tagline">Nourishing dreams, connecting worlds</p>
+      <h1 class="animate-fade-up">INTI SOMOS</h1>
+      <p class="brand-tagline animate-fade-up" style="animation-delay: 0.2s;">
+        Nourishing dreams, connecting worlds
+      </p>
       
-      <div class="search-box">
-        <input type="text" placeholder="Search our products...">
+      <div class="search-box animate-fade-up" style="animation-delay: 0.4s;">
+        <input type="text" placeholder="Search product...">
       </div>
     </div>
 
-    <div class="story-content">
-      <span class="eyebrow-story">Our Journey</span>
-      <h2>A bridge between two worlds</h2>
+    <div class="story-content animate-story">
+      <span class="eyebrow-story">Our Story</span>
+      <h2>A bridge between <br>two worlds</h2>
       
       <div class="story-text">
         <p>
           Founded by <strong>Fernanda</strong>, an American mother with Ecuadorian roots, 
           INTI SOMOS emerged from a powerful pursuit: finding truly nourishing food 
-          for her family—without compromising taste, quality, or purpose.
+          for her family—without compromising taste or quality.
         </p>
         <p>
-          In Ecuador, she rediscovered <span class="highlight">ancestral ingredients like chocho</span>—a nutrient-dense 
-          Andean superfood rich in protein and fiber—alongside natural foods cultivated with 
-          deep respect for the land. What she found was more than nutrition; it was a living 
-          heritage of wellness.
+          In Ecuador, she rediscovered <span class="highlight">ancestral ingredients like chocho</span>, 
+          a nutrient-dense Andean superfood. What she found was more than nutrition; 
+          it was a living heritage of wellness.
         </p>
         <p>
-          <strong>INTI SOMOS</strong>—“Sun” and “We Are”—represents life, energy, and connection. 
-          It is a celebration of who we are when we nourish ourselves with intention, 
-          bringing <span class="highlight">conscious nutrition</span> to a global community.
+          <strong>INTI SOMOS</strong>—“Sun” and “We Are”—represents life and connection. 
+          It is a celebration of who we are when we nourish ourselves with intention.
         </p>
       </div>
 
-      <div style="margin-top: 20px;">
-        <a href="#productos" style="color: var(--terracota); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--terracota); padding-bottom: 4px;">
-          Scroll to explore our products ↓
+      <div class="animate-fade-up" style="animation-delay: 0.8s; margin-top: 20px;">
+        <a href="#productos" style="color: var(--terracota); font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 10px;">
+          <span>Scroll to explore</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
         </a>
       </div>
     </div>
