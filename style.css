@@ -131,17 +131,30 @@ body {
   line-height: 1.8;
 }
 
+.sidebar-highlight {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.sidebar-highlight p {
+  margin: 0;
+  line-height: 1.7;
+  color: #f3e7da;
+}
+
 .main-content {
   padding: 28px;
 }
 
 .hero {
   position: relative;
-  min-height: 420px;
+  min-height: 460px;
   border-radius: 26px;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(46, 34, 27, 0.82) 0%, rgba(46, 34, 27, 0.35) 60%),
+    linear-gradient(90deg, rgba(46, 34, 27, 0.82) 0%, rgba(46, 34, 27, 0.32) 60%),
     url("imagenes/fruta.jpg") center/cover no-repeat;
   box-shadow: var(--sombra);
 }
@@ -149,16 +162,18 @@ body {
 .hero-overlay {
   display: flex;
   align-items: center;
-  min-height: 420px;
+  min-height: 460px;
   padding: 44px;
 }
 
 .hero-text {
-  max-width: 580px;
+  max-width: 620px;
   color: white;
+  animation: fadeUp 0.8s ease;
 }
 
-.badge {
+.badge,
+.mini-badge {
   display: inline-block;
   background: var(--mostaza);
   color: var(--chocolate);
@@ -182,6 +197,13 @@ body {
   color: #f4e7d7;
 }
 
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
 .hero-btn {
   display: inline-block;
   background: var(--arcilla);
@@ -196,6 +218,39 @@ body {
 .hero-btn:hover {
   background: #8d2f24;
   transform: translateY(-2px);
+}
+
+.hero-btn.secondary {
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.hero-btn.secondary:hover {
+  background: rgba(255,255,255,0.22);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  min-width: 120px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(4px);
+}
+
+.stat-box strong {
+  display: block;
+  font-size: 1.2rem;
+}
+
+.stat-box span {
+  font-size: 0.9rem;
+  color: #f1e1cf;
 }
 
 .intro-strip {
@@ -254,6 +309,7 @@ body {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
   border: 1px solid rgba(140, 74, 47, 0.08);
+  animation: fadeUp 0.5s ease;
 }
 
 .card:hover {
@@ -311,8 +367,104 @@ body {
   transform: translateY(-1px);
 }
 
+.export-section,
+.contact-section {
+  margin-top: 34px;
+}
+
+.export-card,
+.contact-card {
+  background: linear-gradient(135deg, #fffaf4, #efe2cf);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: var(--sombra);
+  border: 1px solid rgba(140, 74, 47, 0.08);
+}
+
+.export-card h2,
+.contact-card h2 {
+  margin: 0 0 12px;
+  color: var(--chocolate);
+  font-size: 2rem;
+}
+
+.export-card p,
+.contact-card p {
+  color: var(--gris);
+  line-height: 1.8;
+}
+
+.export-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.export-item,
+.contact-item {
+  background: rgba(255,255,255,0.7);
+  padding: 18px;
+  border-radius: 18px;
+}
+
+.export-item strong,
+.contact-item strong {
+  display: block;
+  color: var(--terracota-dark);
+  margin-bottom: 8px;
+}
+
+.export-item span,
+.contact-item span {
+  color: var(--gris);
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 22px;
+}
+
+.contact-info {
+  display: grid;
+  gap: 16px;
+}
+
 .hidden {
   display: none !important;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--terracota), var(--chocolate));
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  display: none;
+  z-index: 999;
+}
+
+.scroll-top-btn.show {
+  display: block;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 980px) {
@@ -338,7 +490,9 @@ body {
     font-size: 2.2rem;
   }
 
-  .intro-strip {
+  .intro-strip,
+  .export-grid,
+  .contact-card {
     grid-template-columns: 1fr;
   }
 }
@@ -352,7 +506,14 @@ body {
     font-size: 0.98rem;
   }
 
-  .section-header h2 {
+  .section-header h2,
+  .export-card h2,
+  .contact-card h2 {
     font-size: 1.6rem;
+  }
+
+  .hero-actions,
+  .hero-stats {
+    flex-direction: column;
   }
 }
