@@ -1,3 +1,4 @@
+![chochos-liofilizados](../imagenes/chochos.jpg)
 # FREEZE-DRIED LUPIN BEANS / CHOCHOS LIOFILIZADOS
 
 ## 1. Descripción del producto
