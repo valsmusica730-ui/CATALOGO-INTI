@@ -3,226 +3,176 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INTI SOMOS | Interactive Catalog</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>INTI SOMOS | Ancestral Wisdom & Modern Living</title>
+  <style>
+    :root {
+      --terracota: #8C4A2F;
+      --chocolate: #4E3427;
+      --arena: #E8D9C5;
+      --blanco: #FFFDF9;
+      --texto: #2E221B;
+      --gris: #6C5A4E;
+      --sombra: 0 10px 30px rgba(78,52,39,0.12);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--texto);
+      background-color: #fcf8f2;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero-brand {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      min-height: 90vh;
+      background: var(--blanco);
+    }
+
+    /* Lateral Izquierdo: Identidad */
+    .brand-sidebar {
+      background: linear-gradient(135deg, var(--terracota), var(--chocolate));
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .logo-container img {
+      width: 180px; /* Tamaño optimizado */
+      height: auto;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+      margin-bottom: 20px;
+    }
+
+    .brand-sidebar h1 {
+      font-size: 3rem;
+      margin: 10px 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .brand-tagline {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-style: italic;
+      max-width: 300px;
+    }
+
+    /* Lateral Derecho: Historia */
+    .story-content {
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text y="1em" font-size="80" opacity="0.03">☼</text></svg>');
+    }
+
+    .eyebrow-story {
+      color: var(--terracota);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .story-content h2 {
+      font-size: 2.2rem;
+      color: var(--chocolate);
+      margin-top: 0;
+    }
+
+    .story-text {
+      line-height: 1.8;
+      color: var(--gris);
+      font-size: 1.1rem;
+    }
+
+    .story-text p {
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: var(--terracota);
+      font-weight: 600;
+    }
+
+    /* Buscador Integrado */
+    .search-box {
+      margin-top: 30px;
+      position: relative;
+      max-width: 400px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 15px 25px;
+      border-radius: 50px;
+      border: 1px solid var(--arena);
+      background: var(--blanco);
+      font-size: 1rem;
+      box-shadow: var(--sombra);
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-brand { grid-template-columns: 1fr; }
+      .brand-sidebar { min-height: 40vh; padding: 40px; }
+      .story-content { padding: 40px 20px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="layout">
 
-    <aside class="sidebar">
-      <div class="brand-block">
-        <img src="imagenes/logo.jpg" alt="INTI SOMOS Logo" class="logo" />
-        <h1>INTI SOMOS</h1>
-        <p class="tagline">Nourishing dreams, connecting worlds</p>
+  <section class="hero-brand">
+    <div class="brand-sidebar">
+      <div class="logo-container">
+        <img src="../imagenes/logo_inti.png" alt="INTI SOMOS Logo">
       </div>
-
+      <h1>INTI SOMOS</h1>
+      <p class="brand-tagline">Nourishing dreams, connecting worlds</p>
+      
       <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search product..." />
+        <input type="text" placeholder="Search our products...">
+      </div>
+    </div>
+
+    <div class="story-content">
+      <span class="eyebrow-story">Our Journey</span>
+      <h2>A bridge between two worlds</h2>
+      
+      <div class="story-text">
+        <p>
+          Founded by <strong>Fernanda</strong>, an American mother with Ecuadorian roots, 
+          INTI SOMOS emerged from a powerful pursuit: finding truly nourishing food 
+          for her family—without compromising taste, quality, or purpose.
+        </p>
+        <p>
+          In Ecuador, she rediscovered <span class="highlight">ancestral ingredients like chocho</span>—a nutrient-dense 
+          Andean superfood rich in protein and fiber—alongside natural foods cultivated with 
+          deep respect for the land. What she found was more than nutrition; it was a living 
+          heritage of wellness.
+        </p>
+        <p>
+          <strong>INTI SOMOS</strong>—“Sun” and “We Are”—represents life, energy, and connection. 
+          It is a celebration of who we are when we nourish ourselves with intention, 
+          bringing <span class="highlight">conscious nutrition</span> to a global community.
+        </p>
       </div>
 
-      <div class="menu-section">
-        <h3>Categories</h3>
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="snack">Snacks</button>
-        <button class="filter-btn" data-filter="proteina">Plant-based Protein</button>
-        <button class="filter-btn" data-filter="desayuno">Breakfast</button>
-        <button class="filter-btn" data-filter="gourmet">Gourmet</button>
+      <div style="margin-top: 20px;">
+        <a href="#productos" style="color: var(--terracota); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--terracota); padding-bottom: 4px;">
+          Scroll to explore our products ↓
+        </a>
       </div>
+    </div>
+  </section>
 
-      <div class="menu-section">
-        <h3>Brand Values</h3>
-        <ul class="brand-values">
-          <li>Andean ingredients</li>
-          <li>Functional nutrition</li>
-          <li>Food innovation</li>
-          <li>Export identity</li>
-        </ul>
-      </div>
-
-      <div class="menu-section sidebar-highlight">
-        <h3>Target Markets</h3>
-        <p>Retail, export, food service, gifting, and private labels.</p>
-      </div>
-    </aside>
-
-    <main class="main-content">
-      <section class="hero">
-        <div class="hero-overlay">
-          <div class="hero-text">
-            <span class="badge">2026 Catalog</span>
-            <h2>Interactive Portfolio of Andean Products</h2>
-            <p>
-              Food solutions with identity, nutrition, and international projection.
-            </p>
-
-            <div class="hero-actions">
-              <a href="#productos" class="hero-btn">Explore Catalog</a>
-              <a href="#contacto" class="hero-btn secondary">Business Contact</a>
-            </div>
-
-            <div class="hero-stats">
-              <div class="stat-box">
-                <strong>6</strong>
-                <span>products</span>
-              </div>
-              <div class="stat-box">
-                <strong>100%</strong>
-                <span>Andean identity</span>
-              </div>
-              <div class="stat-box">
-                <strong>B2B</strong>
-                <span>export oriented</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="intro-strip">
-        <div class="intro-card">
-          <strong>Natural</strong>
-          <span>Ingredients with Andean essence</span>
-        </div>
-        <div class="intro-card">
-          <strong>Nutritious</strong>
-          <span>High functional and practical value</span>
-        </div>
-        <div class="intro-card">
-          <strong>Exportable</strong>
-          <span>Ready for global markets</span>
-        </div>
-      </section>
-
-      <section class="products-section" id="productos">
-        <div class="section-header">
-          <h2>Our Products</h2>
-          <p>Select a category or use the search bar to browse.</p>
-        </div>
-
-        <div class="products" id="productGrid">
-
-          <article class="card" data-category="snack" data-name="freeze dried fruit snack natural liofilizada">
-            <img src="imagenes/fruta.jpg" alt="Freeze-Dried Fruits">
-            <div class="card-content">
-              <span class="card-label">Natural Snack</span>
-              <h3>Freeze-Dried Fruits</h3>
-              <p>Light, colorful, and nutritious snack with a long shelf life.</p>
-              <a href="productos-html/frutas-liofilizadas.html">View product</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="proteina" data-name="freeze dried lupin beans protein vegetal chochos">
-            <img src="imagenes/lupin.jpg" alt="Freeze-Dried Lupin">
-            <div class="card-content">
-              <span class="card-label">Plant-based Protein</span>
-              <h3>Freeze-Dried Lupin Beans</h3>
-              <p>Andean plant-based protein source, practical and unique.</p>
-              <a href="productos-html/chochos-liofilizados.html">View product</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="snack" data-name="chocolate lupin snack premium cacao chochos">
-            <img src="imagenes/chocolate.jpg" alt="Chocolate Covered Lupin">
-            <div class="card-content">
-              <span class="card-label">Premium Snack</span>
-              <h3>Chocolate Covered Lupin</h3>
-              <p>Andean nutrition with an indulgent profile and added value.</p>
-              <a href="productos-html/chochos-chocolate.html">View product</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="gourmet" data-name="lupin chili spicy gourmet preserve chochos">
-            <img src="imagenes/spaicy.jpg" alt="Lupin in Chili Sauce">
-            <div class="card-content">
-              <span class="card-label">Gourmet</span>
-              <h3>Lupin in Chili Sauce</h3>
-              <p>Traditional product reinterpreted for modern consumption.</p>
-              <a href="productos-html/chochos-aji.html">View product</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="desayuno" data-name="andean cereal breakfast quinoa chocolate cinnamon">
-            <img src="imagenes/CEREAL.jpg" alt="Andean Cereal">
-            <div class="card-content">
-              <span class="card-label">Functional Breakfast</span>
-              <h3>Andean Cereal</h3>
-              <p>Quinoa, cocoa, and cinnamon in a warm, energetic proposal.</p>
-              <a href="productos-html/cereal-andino.html">View product</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="desayuno" data-name="pancake mix breakfast chocolate chips">
-            <img src="imagenes/pancak.jpg" alt="Pancake Mix">
-            <div class="card-content">
-              <span class="card-label">Practical Breakfast</span>
-              <h3>Pancake Mix</h3>
-              <p>Ready-to-prepare mix with a family and commercial profile.</p>
-              <a href="productos-html/pancake-mix.html">View product</a>
-            </div>
-          </article>
-
-        </div>
-      </section>
-
-      <section class="export-section">
-        <div class="export-card">
-          <span class="mini-badge">INTI SOMOS</span>
-          <h2>Ready for International Markets</h2>
-          <p>
-            Our portfolio combines Andean ingredients, logistical practicality,
-            and a warm, authentic, and differentiated brand identity.
-          </p>
-
-          <div class="export-grid">
-            <div class="export-item">
-              <strong>Long Shelf Life</strong>
-              <span>Functional and stable formats</span>
-            </div>
-            <div class="export-item">
-              <strong>Added Value</strong>
-              <span>Innovation with a narrative of origin</span>
-            </div>
-            <div class="export-item">
-              <strong>Export Brand</strong>
-              <span>Image ready for B2B buyers</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-section" id="contacto">
-        <div class="contact-card">
-          <div>
-            <span class="mini-badge">Business Contact</span>
-            <h2>Let’s Connect with New Markets</h2>
-            <p>
-              If you wish to present INTI SOMOS to distributors, buyers, or partners,
-              this catalog is ready to serve as your digital commercial showroom.
-            </p>
-          </div>
-
-          <div class="contact-info">
-            <div class="contact-item">
-              <strong>Brand</strong>
-              <span>INTI SOMOS</span>
-            </div>
-            <div class="contact-item">
-              <strong>Email</strong>
-              <span>youremail@company.com</span>
-            </div>
-            <div class="contact-item">
-              <strong>Country</strong>
-              <span>Ecuador</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Back to top">↑</button>
-
-  <script src="script.js"></script>
 </body>
 </html>
