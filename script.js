@@ -1,11 +1,34 @@
 const searchInput = document.getElementById("searchInput");
 const cards = document.querySelectorAll(".card");
+const filterButtons = document.querySelectorAll(".filter-btn");
 
-searchInput.addEventListener("input", function () {
-  const value = this.value.toLowerCase();
+let currentFilter = "all";
+
+function updateCatalog() {
+  const searchValue = searchInput.value.toLowerCase().trim();
 
   cards.forEach((card) => {
-    const name = card.getAttribute("data-name").toLowerCase();
-    card.style.display = name.includes(value) ? "block" : "none";
+    const name = card.dataset.name.toLowerCase();
+    const category = card.dataset.category.toLowerCase();
+
+    const matchesSearch = name.includes(searchValue);
+    const matchesFilter = currentFilter === "all" || category === currentFilter;
+
+    if (matchesSearch && matchesFilter) {
+      card.classList.remove("hidden");
+    } else {
+      card.classList.add("hidden");
+    }
+  });
+}
+
+searchInput.addEventListener("input", updateCatalog);
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+    currentFilter = button.dataset.filter;
+    updateCatalog();
   });
 });
