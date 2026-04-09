@@ -1,4 +1,4 @@
-![chochos-aji](../imagenes/SPAICY.jpg)
+![chochos-aji](../imagenes/spaicy.jpg)
 # LUPIN BEANS IN CHILI SAUCE / CHOCHOS EN AJÍ
 
 ## 1. Descripción
