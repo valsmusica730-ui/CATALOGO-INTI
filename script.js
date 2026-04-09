@@ -6,11 +6,11 @@ const scrollTopBtn = document.getElementById("scrollTopBtn");
 let currentFilter = "all";
 
 function updateCatalog() {
-  const searchValue = searchInput ? searchInput.value.toLowerCase().trim() : "";
+  const searchValue = searchInput.value.toLowerCase().trim();
 
   cards.forEach((card) => {
-    const name = (card.dataset.name || "").toLowerCase();
-    const category = (card.dataset.category || "").toLowerCase();
+    const name = card.dataset.name.toLowerCase();
+    const category = card.dataset.category.toLowerCase();
 
     const matchesSearch = name.includes(searchValue);
     const matchesFilter = currentFilter === "all" || category === currentFilter;
@@ -23,9 +23,7 @@ function updateCatalog() {
   });
 }
 
-if (searchInput) {
-  searchInput.addEventListener("input", updateCatalog);
-}
+searchInput.addEventListener("input", updateCatalog);
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -36,19 +34,17 @@ filterButtons.forEach((button) => {
   });
 });
 
-if (scrollTopBtn) {
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      scrollTopBtn.classList.add("show");
-    } else {
-      scrollTopBtn.classList.remove("show");
-    }
-  });
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollTopBtn.classList.add("show");
+  } else {
+    scrollTopBtn.classList.remove("show");
+  }
+});
 
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
   });
-}
+});
