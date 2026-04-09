@@ -1,4 +1,4 @@
-![Frutas Liofilizadas](../imagenes/frutas.jpg)
+![Frutas Liofilizadas](../imagenes/fruta.jpg)
 # FREEZE-DRIED FRUITS / FRUTAS LIOFILIZADAS
 
 ## Descripción del producto
